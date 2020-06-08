@@ -12,7 +12,7 @@
     "url": "git+https://github.com/hyhong-code/DevConnector.git"
   },
   "author": "Haiyang Hong",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/hyhong-code/DevConnector/issues"
   },
