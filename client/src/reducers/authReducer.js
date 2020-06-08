@@ -1,4 +1,11 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL } from "../actions/acitonTypes";
+import {
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
+  USER_LOADED,
+  AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+} from "../actions/acitonTypes";
 
 const INITIAL_STATE = {
   token: localStorage.getItem("token"),
@@ -10,7 +17,15 @@ const INITIAL_STATE = {
 const authReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
+    case USER_LOADED:
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+        ...payload,
+      };
     case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
       return {
         ...state,
@@ -19,6 +34,8 @@ const authReducer = (state = INITIAL_STATE, action) => {
         loading: false,
       };
     case REGISTER_FAIL:
+    case AUTH_ERROR:
+    case LOGIN_FAIL:
       localStorage.removeItem("token");
       return {
         ...state,
