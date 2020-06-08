@@ -18,14 +18,14 @@
   },
   "homepage": "https://github.com/hyhong-code/DevConnector#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.1",
     "express": "^4.17.1",
     "express-validator": "^6.5.0",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.18",
-    "request": "^2.88.2"
+    "mongoose": "^5.9.18"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
