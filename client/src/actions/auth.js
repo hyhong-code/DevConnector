@@ -6,12 +6,13 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  CLEAR_PROFILE,
 } from "../actions/acitonTypes";
 import axios from "axios";
 import { setAlert } from "../actions/alert";
 import setAuthToken from "../utils/setAuthToken";
 
-// Loar user
+// load user
 export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
     // set global token header if there is a token
@@ -91,6 +92,9 @@ export const login = (email, password) => async (dispatch) => {
 
 // Logout user
 export const logout = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_PROFILE,
+  });
   dispatch({
     type: LOGOUT,
   });
