@@ -135,4 +135,60 @@ router.put("/unlike/:id", auth, async (req, res) => {
   }
 });
 
+// @route   POST api/posts/comment/:id
+// @desc    Comment on a post
+// @access  Private
+router.post(
+  "/comment/:id",
+  [auth, [check("text", "Text is required").not().isEmpty()]],
+  async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id);
+      const post = await Post.findById(req.params.id);
+
+      const newComment = {
+        user: req.user.id,
+        text: req.body.text,
+        name: user.name,
+        avatar: user.avatar,
+      };
+
+      post.comment.unshift(newComment);
+      await post.save();
+      res.json(post.comment);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server error");
+    }
+  }
+);
+
+// @route   DELETE api/posts/comment/:post_id/:comment_id
+// @desc    Delete a comment
+// @access  Private
+router.delete("/comment/:post_id/:comment_id", auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.post_id);
+    // Locate the comment
+    const commentIdx = post.comment.findIndex(
+      (com) => com.id === req.params.comment_id
+    );
+    // If comment does not exist
+    if (commentIdx === -1) {
+      return res.status(400).send({ msg: "No such comment" });
+    }
+    // Check is user made that comment
+    if (post.comment[commentIdx].user.toString() !== req.user.id) {
+      return res.status(401).send({ msg: "User not authorized" });
+    }
+    // Remove that comment
+    post.comment.splice(commentIdx, 1);
+    await post.save();
+    res.json(post.comment);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
+  }
+});
+
 module.exports = router;
