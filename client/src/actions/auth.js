@@ -7,7 +7,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_PROFILE,
-} from "../actions/acitonTypes";
+} from "../actions/actionTypes";
 import axios from "axios";
 import { setAlert } from "../actions/alert";
 import setAuthToken from "../utils/setAuthToken";

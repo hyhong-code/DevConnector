@@ -1,4 +1,4 @@
-import { SET_ALERT, REMOVE_ALERT } from "../actions/acitonTypes";
+import { SET_ALERT, REMOVE_ALERT } from "./actionTypes";
 import { v4 as uuidv4 } from "uuid";
 
 // dispatch goes here thanks to thunk

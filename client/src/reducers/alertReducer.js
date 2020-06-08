@@ -1,4 +1,4 @@
-import { SET_ALERT, REMOVE_ALERT } from "../actions/acitonTypes";
+import { SET_ALERT, REMOVE_ALERT } from "../actions/actionTypes";
 
 const INITIAL_STATE = [];
 
