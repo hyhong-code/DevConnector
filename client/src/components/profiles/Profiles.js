@@ -8,11 +8,11 @@ import ProfileItem from "./ProfileItem";
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
-  }, []);
+  }, [getProfiles]);
   return (
     <div>
       {loading ? (
-        <img src={Spinner} />
+        <img src={Spinner} alt="spinner" />
       ) : (
         <div>
           <h1 className="large text-primary">Developers</h1>

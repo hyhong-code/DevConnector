@@ -57,8 +57,7 @@ export const getProfileById = (userId) => async (dispatch) => {
   // Prevent flash of previous profile
   dispatch({ type: CLEAR_PROFILE });
   try {
-    const res = await axios.get(`/api/profile/${userId}`);
-
+    const res = await axios.get(`/api/profile/user/${userId}`);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -209,10 +208,8 @@ export const addEducation = (formData, history) => async (dispatch) => {
 // Delete experience
 export const deleteExperience = (id) => async (dispatch) => {
   try {
-    console.log("clicked");
     const resp = await axios.delete(`/api/profile/experience/${id}`);
 
-    console.log(resp);
     dispatch({
       type: UPDATE_PROFILE,
       payload: resp.data,
@@ -256,7 +253,7 @@ export const deleteEducation = (id) => async (dispatch) => {
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm("Are you sure? This can not be undone!")) {
     try {
-      const resp = await axios.delete("/api/profile");
+      await axios.delete("/api/profile");
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
