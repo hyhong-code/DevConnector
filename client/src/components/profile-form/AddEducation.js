@@ -66,14 +66,14 @@ const AddEducation = ({ addEducation, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Field of study"
+            placeholder="* Field of study"
             name="fieldofstudy"
             value={fieldofstudy}
             onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <h4>From Date</h4>
+          <h4>* From Date</h4>
           <input type="date" name="from" value={from} onChange={handleChange} />
         </div>
         <div className="form-group">
