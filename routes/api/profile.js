@@ -7,6 +7,7 @@ const config = require("config");
 
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const Post = require("../../models/Post");
 
 // @route   GET api/profile/me
 // @desc    Get current user's profile
@@ -125,6 +126,7 @@ router.get("/user/:user_id", async (req, res) => {
     const profile = await Profile.findOne({
       user: req.params.user_id,
     }).populate("user", ["name", "avatar"]);
+
     if (!profile) {
       return res.status(400).json({ msg: "Profile not found" });
     }
@@ -170,7 +172,7 @@ router.put(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json(errors.array());
+      return res.status(400).json({ errors: errors.array() });
     }
 
     const {
@@ -239,7 +241,7 @@ router.put(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json(errors.array());
+      return res.status(400).json({ errors: errors.array() });
     }
 
     const {
@@ -279,7 +281,12 @@ router.put(
 // @access  Private
 router.delete("/education/:edu_id", auth, async (req, res) => {
   try {
+    //Remove user posts
+    await Post.deleteMany({ user: req.user.id });
+    // Remove profile
     const profile = await Profile.findOne({ user: req.user.id });
+
+    // Remove User
     profile.education = profile.education.filter(
       (edu) => edu._id.toString() !== req.params.edu_id.toString()
     );
