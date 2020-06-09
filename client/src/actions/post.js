@@ -3,7 +3,6 @@ import {
   POST_ERROR,
   UPDATE_LIKES,
   DELETE_POST,
-  ADD_POST,
   GET_POST,
   ADD_COMMENT,
   REMOVE_COMMENT,
@@ -102,11 +101,8 @@ export const addPost = (formData) => async (dispatch) => {
     },
   };
   try {
-    const resp = await axios.post("/api/posts", body, config);
-    // dispatch({
-    //   type: ADD_POST,
-    //   payload: resp.data,
-    // });
+    await axios.post("/api/posts", body, config);
+
     dispatch(setAlert("Post created", "success"));
     dispatch(getPosts());
   } catch (error) {
@@ -171,9 +167,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
 // Delete comment
 export const deleteComment = (postId, commentId) => async (dispatch) => {
   try {
-    const resp = await axios.delete(
-      `/api/posts/comment/${postId}/${commentId}`
-    );
+    await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
     dispatch({
       type: REMOVE_COMMENT,
       payload: commentId,
