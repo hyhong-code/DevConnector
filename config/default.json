@@ -1,5 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://admin-denny:12345@devconnector-6oano.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken",
-  "githubToken": " d265f83a34c1d0fb99d41bafb6c279b91a0b1236"
-}
