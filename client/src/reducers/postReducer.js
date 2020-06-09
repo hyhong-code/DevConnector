@@ -3,6 +3,10 @@ import {
   POST_ERROR,
   UPDATE_LIKES,
   DELETE_POST,
+  ADD_POST,
+  GET_POST,
+  ADD_COMMENT,
+  REMOVE_COMMENT,
 } from "../actions/actionTypes";
 
 const INITIAL_STATE = {
@@ -21,6 +25,18 @@ const postReducer = (state = INITIAL_STATE, action) => {
         posts: payload,
         loading: false,
       };
+    case GET_POST:
+      return {
+        ...state,
+        post: payload,
+        loading: false,
+      };
+    // case ADD_POST:
+    //   return {
+    //     ...state,
+    //     posts: [payload, ...state.posts],
+    //     loading: false,
+    //   };
     case DELETE_POST:
       return {
         ...state,
@@ -39,6 +55,21 @@ const postReducer = (state = INITIAL_STATE, action) => {
         posts: state.posts.map((post) =>
           post._id === payload.id ? { ...post, like: payload.like } : post
         ),
+        loading: false,
+      };
+    case ADD_COMMENT:
+      return {
+        ...state,
+        post: { ...state.post, comment: payload },
+        loading: false,
+      };
+    case REMOVE_COMMENT:
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comment: state.post.comment.filter((c) => c._id !== payload),
+        },
         loading: false,
       };
     default:
