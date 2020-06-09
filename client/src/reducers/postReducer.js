@@ -1,4 +1,9 @@
-import { GET_POSTS, POST_ERROR, UPDATE_LIKES } from "../actions/actionTypes";
+import {
+  GET_POSTS,
+  POST_ERROR,
+  UPDATE_LIKES,
+  DELETE_POST,
+} from "../actions/actionTypes";
 
 const INITIAL_STATE = {
   posts: [],
@@ -14,6 +19,12 @@ const postReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         posts: payload,
+        loading: false,
+      };
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post._id !== payload),
         loading: false,
       };
     case POST_ERROR:
