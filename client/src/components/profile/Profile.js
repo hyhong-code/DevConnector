@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProfileById } from "../../actions/profile";
-import Spinner from "../../img/spinner.gif";
+import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
@@ -18,11 +18,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match }) => {
   return (
     <Fragment>
       {profile === null ? (
-        <img
-          src={Spinner}
-          style={{ width: "200px", display: "block", margin: "auto" }}
-          alt="spinner"
-        />
+        <Spinner />
       ) : (
         <Fragment>
           <Link to="/profiles" className="btn btn-light">

@@ -14,7 +14,7 @@ const postReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         posts: payload,
-        laoding: false,
+        loading: false,
       };
     case POST_ERROR:
       return {

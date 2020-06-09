@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Spinner from "../../img/spinner.gif";
+import Spinner from "../layout/Spinner";
 import { getProfiles } from "../../actions/profile";
 import ProfileItem from "./ProfileItem";
 
@@ -12,7 +12,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   return (
     <div>
       {loading ? (
-        <img src={Spinner} alt="spinner" />
+        <Spinner />
       ) : (
         <div>
           <h1 className="large text-primary">Developers</h1>
