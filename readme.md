@@ -1,6 +1,6 @@
 # Developer's social network platform built with MongoDB, Express, React, and Node.
 
-## Front end built with React functional components with hooks. State management with redux and thunk. Backend authentication with jsonwebtoken, bcryptjs, and express validator. 
+## Front end built with React functional components with hooks. State management with redux and thunk. Backend authentication with jsonwebtoken, bcryptjs, and express validator. Deployed with Heroku.
 
 ### Core features:
 1. User is able to browse other user's profile.
