@@ -1,8 +1,8 @@
 # DevConnector
 
-## Fullstack Social network platform for developers with CRUD functionalities.
+## Fullstack Social network platform for developers with CRUD functionalities and authentication.
 
-### Front end built with React functional components with hooks, state management with redux and thunk. Backend built with node/express, mongoDB/mongoose, authentication with jsonwebtoken, bcryptjs, and express validator. Deployed on Heroku.
+### Front end built with React functional components with hooks, state management with redux and thunk. Backend built with node/express, mongoDB/mongoose. Deployed on Heroku.
 
 ---
 
