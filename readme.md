@@ -1,24 +1,41 @@
-# Developer's social network platform built with MongoDB, Express, React, and Node.
+# DevConnector
 
-## Front end built with React functional components with hooks. State management with redux and thunk. Backend authentication with jsonwebtoken, bcryptjs, and express validator. Deployed with Heroku.
+## Fullstack Social network platform for developers with CRUD functionalities.
 
-### Core features:
-1. User is able to browse other user's profile.
-2. New user is able to register an account.
-3. Existing user is able to login.
-4. Authenticated user is able to go to own dashboard.
-5. Authenticated user is able to post/like/comment on discussion board.
-6. Authenticated user is able to update own profile information.
-7. User's profile page is accessable from discussion board by clicking on avartar.
+### Front end built with React functional components with hooks, state management with redux and thunk. Backend built with node/express, mongoDB/mongoose, authentication with jsonwebtoken, bcryptjs, and express validator. Deployed on Heroku.
 
-[Deployed version to play around](https://mysterious-wildwood-60675.herokuapp.com/)
+---
 
+**Current Features:**
+- A User is able to login / signup
+- A User is able to browse others' profiles
+- An authenticated user is able to create a profile via dashboard
+- An authenticated user is able to update, delete profile via dashboard
+- An authenticated user is able to create, comment on, like, and unlike posts
+- An authenticated user is able to delete own posts and comments
 
-#### Previews:
+---
 
-![preview1](project-previews/preview1.png)
-![preview2](project-previews/preview2.png)
-![preview3](project-previews/preview3.png)
-![preview3](project-previews/preview4.png)
-![preview3](project-previews/preview5.png)
-![preview3](project-previews/preview6.png)
+[Live demo](https://mysterious-wildwood-60675.herokuapp.com/)
+
+---
+
+## SHOWCASE:
+
+### Landing page
+<img src="./project-previews/preview1.png" width="70%">
+
+### Profile Page
+<img src="./project-previews/preview4.png" width="70%">
+
+### Dashboard page
+<img src="./project-previews/preview3.png" width="70%">
+
+### Posts page
+<img src="./project-previews/preview6.png" width="70%">
+
+### Signup page
+<img src="./project-previews/preview2.png" width="70%">
+
+### Browsing dev profiles
+<img src="./project-previews/preview5.png" width="70%">
